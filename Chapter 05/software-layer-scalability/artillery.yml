@@ -1,0 +1,16 @@
+config:
+  plugins:
+    fake-data: {}
+  target: https://afw26v7dfj.execute-api.eu-west-1.amazonaws.com/live
+  phases:
+    - duration: 60
+      arrivalRate: 1000
+      name: Spike phase
+
+scenarios:
+  - flow:
+    - post:
+        url: "/item"
+        json:
+          name: "{{ $randFood() }}"
+          id: {{ $randNumber() }}

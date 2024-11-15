@@ -1,0 +1,21 @@
+{
+  "scripts": {
+    "build": "tsc",
+    "cdk:run": "cdk --profile serverless --app 'npx ts-node --prefer-ts-exts cdk/bin/app.ts'",
+    "cdk:synth": "npm run cdk:run synth",
+    "cdk:deploy": "npm run cdk:run deploy",
+    "cdk:destroy": "npm run cdk:run  destroy"
+  },
+  "devDependencies": {
+    "@types/node": "10.17.27",
+    "aws-cdk": "^2.61.1",
+    "esbuild": "^0.17.4",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "^2.61.1",
+    "constructs": "^10.1.221",
+    "source-map-support": "^0.5.21"
+  }
+}

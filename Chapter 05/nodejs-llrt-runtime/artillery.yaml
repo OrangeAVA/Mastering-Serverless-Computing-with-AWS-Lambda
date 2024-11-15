@@ -1,0 +1,22 @@
+config:
+  plugins:
+    fake-data: {}
+  target: https://AAAAAA.lambda-url.eu-west-1.on.aws
+  phases:
+    - duration: 300
+      arrivalRate: 1
+      name: "Warm up Nodejs 20"
+  environments:
+    llrt:
+      target: https://XXXXXX.lambda-url.eu-west-1.on.aws
+      phases:
+        - duration: 300
+          arrivalRate: 1
+          name: "Warm up LLRT"
+scenarios:
+  - flow:
+      - post:
+          url: "/"
+          json:
+            reference: "{{ $randAccessory() }}"
+            price: "{{ randNumber({ min: 1000, max: 5000 }) }}"
